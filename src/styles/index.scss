@@ -2,9 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-@import './core/font';
+@import "./variables";
+
+@import "./core/font";
+@import "./core/helpers";
 
 /*
   Components
 */
-@import './components/text';
+@import "./components/text";

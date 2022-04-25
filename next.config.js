@@ -5,9 +5,16 @@ module.exports = withImages({
   fileExtensions: ["jpg", "jpeg", "png", "gif", "ico", "webp", "jp2", "avif"],
   exclude: path.resolve(__dirname, 'src/icons'),
   images: {
-    disableStaticImages: true
+    disableStaticImages: true,
+    domains: ['media.graphcms.com']
   },
   webpack(config) {
+
+    config.module.rules.push({
+      test: /\.png$/i,
+      type: 'asset',
+      resourceQuery: /url/, // *.svg?url
+    });
     config.module.rules.push({
       test: /\.svg$/,
       use: ["@svgr/webpack"]
