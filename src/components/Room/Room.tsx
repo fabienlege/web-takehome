@@ -9,7 +9,7 @@ const Room: React.FC = () => {
   const currentChat = useSelector((state: RootState) => state.chats.chats.filter(chat => chat.id === state.chats.currentChat)[0] || null);
 
   // retrive messages for the currently selected chat from redux store
-  const messages = useSelector((state: RootState) => state.messages.messages.filter(message => message.chatId === currentChat.id));
+  const messages = useSelector((state: RootState) => state.messages.messages.filter(message => message.chatId === currentChat?.id));
 
   // If no current chat is selected, return a simple message
   if (!currentChat) {
